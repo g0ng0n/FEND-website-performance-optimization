@@ -16,6 +16,34 @@ module.exports = function(grunt) {
 
     // Grunt configuration
     grunt.initConfig({
+        responsive_images: {
+            dev: {
+                options: {
+                    engine: 'im',
+                    sizes: [{
+                        name: 'small',
+                        width: 320,
+                        height: 240
+                    },{
+                        width: 900,
+                        suffix: '_large_1x',
+                        quality: 50
+                    },{
+                        name: "large",
+                        width: 1024,
+                        separator: "-",
+                        suffix: "_x2",
+                        quality: 0.6
+                    }]
+                },
+                files: [{
+                    expand: true,
+                    src: ['*.{gif,jpg,png}'],
+                    cwd: 'img/',
+                    dest: 'img/'
+                }]
+            }
+        },
         pagespeed: {
             options: {
                 nokey: true,
@@ -32,6 +60,17 @@ module.exports = function(grunt) {
                 options: {
                     strategy: "mobile"
                 }
+            }
+        },
+        cssmin: {
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'release/css',
+                    src: ['*.css', '!*.min.css'],
+                    dest: 'release/css',
+                    ext: '.min.css'
+                }]
             }
         }
     });
@@ -54,5 +93,8 @@ module.exports = function(grunt) {
 
 
     // Register default tasks
-    grunt.registerTask('default', ['psi-ngrok']);
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-responsive-images');
+
+    grunt.registerTask('default', ['psi-ngrok','responsive_images','cssmin']);
 }
