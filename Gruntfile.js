@@ -71,7 +71,8 @@ module.exports = function(grunt) {
         uglify: {
             my_target: {
                 files: {
-                    'public/js/analyticsPerfomance.min.js': ['src/js/analytics.js', 'src/js/perfmatters.js']
+                    'public/js/analyticsPerfomance.min.js': ['src/js/analytics.js', 'src/js/perfmatters.js'],
+                    'views/js/main.min.js': ['views/js/main.js']
                 }
             }
         },
@@ -134,6 +135,38 @@ module.exports = function(grunt) {
                     ]
                 }]
             }
+        },
+        jshint: {
+            all: {
+                src: 'views/js/main.js',
+                options: {
+                    bitwise: true,
+                    camelcase: true,
+                    curly: true,
+                    eqeqeq: true,
+                    forin: true,
+                    immed: true,
+                    indent: 4,
+                    latedef: true,
+                    newcap: true,
+                    noarg: true,
+                    noempty: true,
+                    nonew: true,
+                    quotmark: 'single',
+                    regexp: true,
+                    undef: false,
+                    unused: true,
+                    trailing: true
+                }
+            }
+        },
+        jsdoc : {
+            dist : {
+                src: ['views/js/main.js'],
+                options: {
+                    destination: 'doc'
+                }
+            }
         }
     });
 
@@ -163,7 +196,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-cache-bust');
     grunt.loadNpmTasks('grunt-contrib-compress');
-
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-jsdoc');
 
     grunt.registerTask('default', ['uncss','psi-ngrok','imagemin','concat','uglify','cssmin','htmlmin','cacheBust','compress']);
 }

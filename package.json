@@ -28,7 +28,8 @@
     "imagemin-jpegoptim": "^4.0.0",
     "imagemin-mozjpeg": "^5.1.0",
     "load-grunt-tasks": "^0.5.0",
-    "ngrok": "^0.1.94"
+    "ngrok": "^0.1.94",
+    "grunt-jsdoc": "0.6.8"
   },
   "license": "ISC",
   "bugs": {

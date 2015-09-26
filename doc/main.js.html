@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: main.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: main.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
  jank-free at 60 frames per second.
 
@@ -407,12 +435,12 @@ var selectRandomCrust = function() {
  * These functions return a string of a random ingredient from each respective category of ingredients.
  */
 var ingredientItemizer = function(string) {
-    return '<li>' + string + '</li>';
+    return '&lt;li>' + string + '&lt;/li>';
 };
 
 
 /**
- * Returns a string with random pizza ingredients nested inside <li> tags
+ * Returns a string with random pizza ingredients nested inside &lt;li> tags
  */
 var makeRandomPizza = function() {
     var pizza = '';
@@ -421,15 +449,15 @@ var makeRandomPizza = function() {
     var numberOfNonMeats = Math.floor((Math.random() * 3));
     var numberOfCheeses = Math.floor((Math.random() * 2));
 
-    for (var i = 0; i < numberOfMeats; i++) {
+    for (var i = 0; i &lt; numberOfMeats; i++) {
         pizza = pizza + ingredientItemizer(selectRandomMeat());
     }
 
-    for (var j = 0; j < numberOfNonMeats; j++) {
+    for (var j = 0; j &lt; numberOfNonMeats; j++) {
         pizza = pizza + ingredientItemizer(selectRandomNonMeat());
     }
 
-    for (var k = 0; k < numberOfCheeses; k++) {
+    for (var k = 0; k &lt; numberOfCheeses; k++) {
         pizza = pizza + ingredientItemizer(selectRandomCheese());
     }
 
@@ -539,7 +567,7 @@ function changePizzaSizes(size) {
     var pizzaContainer = document.getElementsByClassName('randomPizzaContainer');
     var dx = determineDx(pizzaContainer[0], size);
     var newWidth = (pizzaContainer[0].offsetWidth + dx) + 'px';
-    for (var i = 0, l = pizzaContainer.length; i < l; i++) {
+    for (var i = 0, l = pizzaContainer.length; i &lt; l; i++) {
         pizzaContainer[i].style.width = newWidth;
     }
 }
@@ -566,7 +594,7 @@ window.performance.mark('mark_start_generating'); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
 var pizzasDiv = document.getElementById('randomPizzas');
-for (var i = 2; i < 100; i++) {
+for (var i = 2; i &lt; 100; i++) {
     pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -609,7 +637,7 @@ function updatePositions() {
     var currentScrollY = lastScrollY;
 
     var items = document.querySelectorAll('.mover');
-    for (var i = 0; i < items.length; i++) {
+    for (var i = 0; i &lt; items.length; i++) {
         var phase = Math.sin((currentScrollY / 1250) + (i % 5));
         items[i].style.transform = 'translateX(' + 100 * phase + 'px)'; //animate on translate property - increased performance
     }
@@ -663,7 +691,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var rows = screenHeight / s; // Generate pizza total based on available screen dimensions
     var totalPizza = Math.ceil(cols * rows); // ceil err on the side of good visuals
     var movingPizzas = document.getElementById('movingPizzas1');
-    for (var i = 0; i < totalPizza; i++) {
+    for (var i = 0; i &lt; totalPizza; i++) {
         var elem = document.createElement('img');
         elem.className = 'mover';
         elem.src = PIZZA_IMAGE;
@@ -681,3 +709,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#changePizzaSizes">changePizzaSizes</a></li><li><a href="global.html#changeSliderLabel">changeSliderLabel</a></li><li><a href="global.html#determineDx">determineDx</a></li><li><a href="global.html#generator">generator</a></li><li><a href="global.html#getAdj">getAdj</a></li><li><a href="global.html#getNoun">getNoun</a></li><li><a href="global.html#ingredientItemizer">ingredientItemizer</a></li><li><a href="global.html#logAverageFrame">logAverageFrame</a></li><li><a href="global.html#makeRandomPizza">makeRandomPizza</a></li><li><a href="global.html#MARK_END_FRAME">MARK_END_FRAME</a></li><li><a href="global.html#MARK_START_FRAME">MARK_START_FRAME</a></li><li><a href="global.html#MEASURE_FRAME_DURATION">MEASURE_FRAME_DURATION</a></li><li><a href="global.html#onScroll">onScroll</a></li><li><a href="global.html#PIZZA_IMAGE">PIZZA_IMAGE</a></li><li><a href="global.html#pizzaElementGenerator">pizzaElementGenerator</a></li><li><a href="global.html#pizzaIngredients">pizzaIngredients</a></li><li><a href="global.html#randomName">randomName</a></li><li><a href="global.html#requestFrame">requestFrame</a></li><li><a href="global.html#resizePizzas">resizePizzas</a></li><li><a href="global.html#selectRandomCheese">selectRandomCheese</a></li><li><a href="global.html#selectRandomCrust">selectRandomCrust</a></li><li><a href="global.html#selectRandomMeat">selectRandomMeat</a></li><li><a href="global.html#selectRandomNonMeat">selectRandomNonMeat</a></li><li><a href="global.html#selectRandomSauce">selectRandomSauce</a></li><li><a href="global.html#sizeSwitcher">sizeSwitcher</a></li><li><a href="global.html#updatePositions">updatePositions</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.3</a> on Sat Sep 26 2015 03:32:24 GMT-0300 (Argentina Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
