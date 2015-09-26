@@ -66,13 +66,20 @@ module.exports = function(grunt) {
                     'views/css/*'
                 ],
                 dest: 'views/css/combinedPizza.css'
+            },
+            jsPizza:{
+                src: [
+                    'views/js/dataGenerator.js',
+                    'views/js/main.js'
+                ],
+                dest: 'views/js/combinedJS.js'
             }
         },
         uglify: {
             my_target: {
                 files: {
                     'public/js/analyticsPerfomance.min.js': ['src/js/analytics.js', 'src/js/perfmatters.js'],
-                    'views/js/main.min.js': ['views/js/main.js']
+                    'views/js/combinedJS.min.js': ['views/js/combinedJS.js']
                 }
             }
         },
