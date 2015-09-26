@@ -2,6 +2,7 @@
 
 ### Getting started
 To view web pages you can visit this live demo pages at:
+  http://g0ng0n.github.io/FEND-website-performance-optimization/
 
 or you can clone the repo a run a localserver
 
