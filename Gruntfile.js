@@ -45,7 +45,7 @@ module.exports = function(grunt) {
         pagespeed: {
             options: {
                 nokey: true,
-                locale: "en_GB",
+                locale: "en_US",
                 threshold: 40,
                 url:"http://0.0.0.0:8080/"
             },
