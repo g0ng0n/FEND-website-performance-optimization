@@ -14,3 +14,8 @@ or you can clone the repo a run a localserver
   ```
   ```
 2.Open a browser and visit localhost:8080
+
+
+### Dev Documentation
+
+to see the Documentation for Developers go to the doc folder
