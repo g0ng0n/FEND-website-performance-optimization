@@ -145,11 +145,12 @@ function updatePositions() {
     window.performance.mark(MARK_START_FRAME);
     var currentScrollY = lastScrollY;
 
-    var items = document.querySelectorAll('.mover');
+    var items = document.getElementsByClassName('.mover');
     for (var i = 0; i < items.length; i++) {
         var phase = Math.sin((currentScrollY / 1250) + (i % 5));
         items[i].style.transform = 'translateX(' + 100 * phase + 'px)'; //animate on translate property - increased performance
     }
+
 
     // User Timing API to the rescue again. Seriously, it's worth learning.
     // Super easy to create custom metrics.
@@ -196,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var screenWidth = screen.availWidth;
     var screenHeight = screen.availHeight;
     var s = 256;
-    var cols = screenWidth / s;
+    var cols = (screenWidth / s) + 1;
     var rows = screenHeight / s; // Generate pizza total based on available screen dimensions
     var totalPizza = Math.ceil(cols * rows); // ceil err on the side of good visuals
     var movingPizzas = document.getElementById('movingPizzas1');
